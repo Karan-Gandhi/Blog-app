@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate as Redirect } from "react-router";
-// import { userIsLoggedIn } from "../api/Auth";
+import { userIsLoggedIn } from "../api/Auth";
 import DefaultLoader from "../components/DefaultLoader";
 
 interface DefaultRouteProps {}
@@ -10,13 +10,13 @@ const DefaultRoute: React.FC<DefaultRouteProps> = () => {
 	const [redirectToHomeRoute, setRedirectToHomeRoute] = useState<boolean>(false);
 
 	useEffect(() => {
-		// userIsLoggedIn()
-		// 	.then(res => {
-		// 		setLoading(false);
-		// 		if (res) setRedirectToHomeRoute(true);
-		// 		else setRedirectToHomeRoute(false);
-		// 	})
-		// 	.catch(error => {});
+		userIsLoggedIn()
+			.then(res => {
+				setLoading(false);
+				if (res) setRedirectToHomeRoute(true);
+				else setRedirectToHomeRoute(false);
+			})
+			.catch(error => {});
 	}, []);
 
 	if (isLoading) {
@@ -26,7 +26,7 @@ const DefaultRoute: React.FC<DefaultRouteProps> = () => {
 			</div>
 		);
 	} else if (redirectToHomeRoute) {
-		return <Redirect to="/teams" />;
+		return <Redirect to="/feed" />;
 	} else {
 		return <Redirect to="/login" />;
 	}

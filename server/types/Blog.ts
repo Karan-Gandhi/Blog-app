@@ -4,6 +4,7 @@ export type BlogID = string;
 export type BlogContentID = string;
 
 export default interface Blog {
+	id: BlogID;
 	title: string;
 	blogContentID: BlogContentID;
 	author: UserID;
@@ -11,6 +12,7 @@ export default interface Blog {
 }
 
 export interface BlogContent {
+	id: BlogContentID;
 	blogID: BlogID;
 	content: string;
 }
