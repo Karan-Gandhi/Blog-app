@@ -1,0 +1,7 @@
+/node_modules
+/credentials
+/dist/credentials
+/dist
+/cache/*
+
+.env
