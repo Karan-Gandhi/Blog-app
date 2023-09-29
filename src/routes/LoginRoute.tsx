@@ -3,8 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import Textfield from "../components/Textfield";
 import Button from "../components/Button";
 import { useSnackbar } from "../Snackbar";
-// import { validate } from "../utils/AuthUtils";
-// import { loginWithEmailAndPassword, userIsLoggedIn } from "../api/Auth";
+import { validate } from "../utils/AuthUtils";
+import { loginWithEmailAndPassword, userIsLoggedIn } from "../api/Auth";
 import DefaultLoader from "../components/DefaultLoader";
 
 interface LoginRouteProps {}
@@ -17,34 +17,34 @@ const LoginRoute: React.FC<LoginRouteProps> = () => {
 	const [password, setPassword] = useState<string>("");
 	const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
 
-	// useEffect(() => {
-	// 	userIsLoggedIn()
-	// 		.then((status) => {
-	// 			setLoading(false);
-	// 			setUserLoggedIn(status);
-	// 		})
-	// 		.catch((error) => console.log(error));
-	// }, []);
+	useEffect(() => {
+		userIsLoggedIn()
+			.then(status => {
+				setLoading(false);
+				setUserLoggedIn(status);
+			})
+			.catch(error => console.log(error));
+	}, []);
 
-	// const handleSubmit = useCallback(
-	// 	(e: any) => {
-	// 		e.preventDefault();
-	// 		const validationSuccess = validate(errorMessage => enqueueSnackbar(errorMessage), email, password);
+	const handleSubmit = useCallback(
+		(e: any) => {
+			e.preventDefault();
+			const validationSuccess = validate(errorMessage => enqueueSnackbar(errorMessage), email, password);
 
-	// 		if (validationSuccess) {
-	// 			loginWithEmailAndPassword(email, password)
-	// 				.then(status => setUserLoggedIn(status))
-	// 				.catch(error => {
-	// 					if (error.message === "Network Error") {
-	// 						// eslint-disable-next-line indent
-	// 						return enqueueSnackbar("No internet connection");
-	// 					}
-	// 					enqueueSnackbar("Invalid email or password");
-	// 				});
-	// 		}
-	// 	},
-	// 	[enqueueSnackbar, email, password]
-	// );
+			if (validationSuccess) {
+				loginWithEmailAndPassword(email, password)
+					.then(status => setUserLoggedIn(status))
+					.catch(error => {
+						if (error.message === "Network Error") {
+							// eslint-disable-next-line indent
+							return enqueueSnackbar("No internet connection");
+						}
+						enqueueSnackbar("Invalid email or password");
+					});
+			}
+		},
+		[enqueueSnackbar, email, password]
+	);
 
 	if (isLoading) {
 		return (
@@ -55,7 +55,7 @@ const LoginRoute: React.FC<LoginRouteProps> = () => {
 	}
 
 	if (userLoggedIn) {
-		// return <Navigate to="/teams" />;
+		return <Navigate to="/feed" />;
 	}
 
 	return (
@@ -65,8 +65,7 @@ const LoginRoute: React.FC<LoginRouteProps> = () => {
 					<div className="text-4xl font-bold mb-8">
 						<span>Login</span>
 					</div>
-					{/* <form onSubmit={handleSubmit} className="w-full flex gap-2 flex-col"> */}
-					<form className="w-full flex gap-2 flex-col">
+					<form onSubmit={handleSubmit} className="w-full flex gap-2 flex-col">
 						<div>
 							<Textfield
 								onChange={value => {
