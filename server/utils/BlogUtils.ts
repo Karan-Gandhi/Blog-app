@@ -34,7 +34,7 @@ export const createBlog = async (
 
 	// update database
 	await addData(FirestoreCollections.BLOGS, blog.id, blog);
-	await addData(FirestoreCollections.BLOGS, blog.id, blog);
+	await addData(FirestoreCollections.BLOG_CONTENT, blogContent.id, blogContent);
 	await addBlogToUser(userID, blogID);
 
 	return blog;
