@@ -18,9 +18,9 @@ export const readData: {
 	<T>(collection: string, document: string): Promise<T>;
 } = async <T>(collection: string, document?: string) => {
 	if (!!document) {
-		if (firebaseCache.itemExists(collectionAndDocumentToId(collection, document))) {
-			return firebaseCache.getItem(collectionAndDocumentToId(collection, document)) as T;
-		}
+		// if (firebaseCache.itemExists(collectionAndDocumentToId(collection, document))) {
+		// 	return firebaseCache.getItem(collectionAndDocumentToId(collection, document)) as T;
+		// }
 		const doc = await db.collection(collection).doc(document).get();
 		if (!doc.exists) {
 			return null;

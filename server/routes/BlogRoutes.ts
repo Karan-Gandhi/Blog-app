@@ -1,12 +1,23 @@
 import * as express from "express";
 import User from "../types/User";
-import { createBlog, deleteBlog, getBlogByID, getBlogContent, updateBlogContent } from "../utils/BlogUtils";
+import {
+	createBlog,
+	deleteBlog,
+	getAllBlogs,
+	getBlogByID,
+	getBlogContent,
+	updateBlogContent,
+} from "../utils/BlogUtils";
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const user = JSON.parse(req.user as string) as User;
 	// returns all the blogs that the user belongs to
+	res.json({ blogs: await getAllBlogs() });
+});
+
+router.get("/userBlogs", async (req, res) => {
+	const user = JSON.parse(req.user as string) as User;
 	res.json({ blogs: user.blogs });
 });
 

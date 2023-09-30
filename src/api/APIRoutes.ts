@@ -7,7 +7,8 @@ enum APIRoutes {
 	LOGOUT = "/auth/logout",
 
 	// BLOGS
-	GET_BLOGS = "/api/blogs/",
+	GET_BLOGS = "/api/blogs",
+	GET_USER_BLOGS = "/api/blogs/userBlogs",
 	CREATE_BLOG = "/api/teams/createBlog",
 	GET_BLOG_BY_ID = "/api/blogs/", // Give the blog ID
 	GET_BLOG_CONTENT_BY_ID = "/api/blogs/content/", // Give the blog ID not the blog content ID

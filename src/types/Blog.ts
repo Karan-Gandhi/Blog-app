@@ -8,6 +8,7 @@ export default interface Blog {
 	title: string;
 	blogContentID: BlogContentID;
 	author: UserID;
+	authorName: string;
 	datePublished: number;
 	tags: string[];
 }

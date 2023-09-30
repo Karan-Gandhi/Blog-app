@@ -1,3 +1,4 @@
+import Blog from "../types/Blog";
 import { AccessToken, RefreshToken } from "../types/Tokens";
 import User, { UserID } from "../types/User";
 
@@ -15,6 +16,10 @@ export interface GetUserByIdResponse {
 
 export interface SearchUserByEmailResponse {
 	results: User[];
+}
+
+export interface GetAllBlogsResponse {
+	blogs: Blog[];
 }
 
 // Change from here

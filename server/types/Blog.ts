@@ -10,6 +10,7 @@ export default interface Blog {
 	author: UserID;
 	datePublished: number;
 	tags: string[];
+	authorName: string;
 }
 
 export interface BlogContent {

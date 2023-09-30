@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- User Login, and Signup.
+- User Authorisation - Once the user is logged in then the server gives a Access token which expires in 10 min after which the user provides a refresh token to get the new access token. Without the access token, the user wouldn't be able to see other blogs, create, edit new or existing blogs. This entire process happens in the background
+- User can create new Blogs
+- User can edit existing blogs provided it is written by him.
+- User can delete existing blogs provided it is created by him.
+- ~~A User can add comments to other's blogs~~
 
-## Available Scripts
+# Running this app locally
 
-In the project directory, you can run:
+Please follow these steps to run the app locally
 
-### `yarn start`
+**PS**: Sorry I already have maxed out the number of apps I could deploy for free on heroku.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. Clone this repo.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Firstly to clone this github repo, navigate to the directory where you wanna clone and run
 
-### `yarn test`
+```
+git clone https://github.com/Karan-Gandhi/Web-dev-Induction-Assignment.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Install the dependencies
 
-### `yarn build`
+Run the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn
+yarn install
+cd server
+yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 3. Set the enviorment variables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Go to server/.env_sample, and replace the ACCESS_TOKEN_SECRET_SAMPLE and the REFRESH_TOKEN_SECRET_SAMPLE with a randomly generated hex string (64 bytes) to do this you can just run:
 
-### `yarn eject`
+```
+node
+require('crypto').randomBytes(64).toString('hex')
+require('crypto').randomBytes(64).toString('hex')
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This will give you 2 strings, replace it with ACCESS_TOKEN_SECRET_SAMPLE and the REFRESH_TOKEN_SECRET_SAMPLE and rename the file from .env_sample to .env
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. Run the server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run the server open a instance of the terminal and run the following commands
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+cd server
+yarn build
+yarn start
+```
 
-## Learn More
+This will build the server in the dist folder and run it on port 5000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 5. Run the Fronend Web App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open another instance of the terminal and run
+
+```
+yarn start
+```
+
+A new browser window will open, showing the login screen.
+
+# Tech stack
+
+- Server is made in Nodejs (Typescript)
+- Firebase for databasing (Firebase Firestore)
+- React (Typescript) for the front-end

@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { addData, deleteData, readData } from "../services/Firestore";
 import FirestoreCollections from "../types/FirestoreCollections";
 import { UserID } from "../types/User";
-import { addBlogToUser, deleteUserBlog } from "./UserUtils";
+import { addBlogToUser, deleteUserBlog, getUserByID } from "./UserUtils";
 import Blog, { BlogContent, BlogContentID, BlogID } from "../types/Blog";
 
 const NO_SUCH_BLOG_EXISTS = new Error("No such blog exists");
@@ -26,6 +26,7 @@ export const createBlog = async (
 		id: blogID,
 		title,
 		author: userID,
+		authorName: (await getUserByID(userID)).name,
 		datePublished,
 		tags,
 		blogContentID: blogContent.id,
@@ -66,4 +67,8 @@ export const deleteBlog = async (id: BlogID) => {
 	await deleteUserBlog(blog.author, id);
 	await deleteData(FirestoreCollections.BLOGS, id);
 	await deleteData(FirestoreCollections.BLOG_CONTENT, blog.blogContentID);
+};
+
+export const getAllBlogs = async () => {
+	return await readData(FirestoreCollections.BLOGS);
 };

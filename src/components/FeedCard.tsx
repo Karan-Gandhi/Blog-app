@@ -5,11 +5,12 @@ interface FeedCardProps extends Blog {}
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-const FeedCard: React.FC<FeedCardProps> = ({ author, blogContentID, datePublished, id, tags, title }) => {
+const FeedCard: React.FC<FeedCardProps> = ({ authorName, blogContentID, datePublished, id, tags, title }) => {
+	// alert(authorName);
 	return (
 		<div className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full">
 			<div>
-				<div className="text text-zinc-300 font-semibold">{author}</div>
+				<div className="text text-zinc-300 font-semibold">{authorName}</div>
 				<div className="text-2xl font-bold mb-2">{title}</div>
 				<div className="flex flex-row items-center gap-1 text-zinc-300">
 					<div>{MONTHS[new Date(datePublished).getMonth()] + " " + new Date(datePublished).getDate()}</div>
