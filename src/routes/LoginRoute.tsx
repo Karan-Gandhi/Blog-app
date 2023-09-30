@@ -29,11 +29,12 @@ const LoginRoute: React.FC<LoginRouteProps> = () => {
 	const handleSubmit = useCallback(
 		(e: any) => {
 			e.preventDefault();
+			setLoading(true);
 			const validationSuccess = validate(errorMessage => enqueueSnackbar(errorMessage), email, password);
 
 			if (validationSuccess) {
 				loginWithEmailAndPassword(email, password)
-					.then(status => setUserLoggedIn(status))
+					.then(status => [setUserLoggedIn(status), setLoading(false)])
 					.catch(error => {
 						if (error.message === "Network Error") {
 							// eslint-disable-next-line indent
