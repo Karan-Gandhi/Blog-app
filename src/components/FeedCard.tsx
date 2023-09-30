@@ -8,7 +8,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const FeedCard: React.FC<FeedCardProps> = ({ authorName, blogContentID, datePublished, id, tags, title }) => {
 	// alert(authorName);
 	return (
-		<div className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full">
+		<div className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full cursor-pointer">
 			<div>
 				<div className="text text-zinc-300 font-semibold">{authorName}</div>
 				<div className="text-2xl font-bold mb-2">{title}</div>
@@ -24,7 +24,9 @@ const FeedCard: React.FC<FeedCardProps> = ({ authorName, blogContentID, datePubl
 					<div className="flex flex-row gap-2">
 						{tags.map((tag, idx) =>
 							idx < 3 ? (
-								<div className="text-semibold bg-zinc-800 px-2 rounded-full flex items-center">{tag}</div>
+								<div key={idx} className="text-semibold bg-zinc-800 px-2 rounded-full flex items-center">
+									{tag}
+								</div>
 							) : null
 						)}
 					</div>

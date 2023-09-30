@@ -14,8 +14,8 @@ const FeedRoute: React.FC<FeedRouteProps> = () => {
 
 	useEffect(() => {
 		getAllBlogs()
-			.then(blogs => [console.log(blogs), setAllBlogs(blogs), setLoading(false)])
-			.catch(error => [console.log(error), setLoading(false)]);
+			.then(blogs => [setAllBlogs(blogs), setLoading(false)])
+			.catch(error => setLoading(false));
 	}, []);
 
 	if (isLoading) return <DefaultLoader />;
