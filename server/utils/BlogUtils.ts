@@ -22,7 +22,7 @@ export const createBlog = async (
 		content,
 	};
 
-	const timeToRead = Math.round(content.split(" ").length / 238);
+	const timeToRead = Math.ceil(content.split(" ").length / 100);
 
 	const blog: Blog = {
 		id: blogID,

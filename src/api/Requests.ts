@@ -25,31 +25,3 @@ export interface CreateBlogRequest {
 	content: string;
 	tags: string[];
 }
-
-// Change from heres
-// export interface SendTeamMessageRequest {
-// 	content: string;
-// }
-
-// export interface JoinTeamRequest {
-// 	teamID: TeamID;
-// }
-
-// export interface CreateTeamRequest {
-// 	name: string;
-// 	members: UserID[];
-// }
-
-// export interface AddMemberToTeamRequest {
-// 	userID: UserID;
-// }
-
-// export interface RemoveUserFromTeamRequest {
-// 	userID: UserID;
-// }
-
-// export interface CreateMeetingRequest {
-// 	name: string;
-// 	time: number;
-// 	teamID: TeamID;
-// }

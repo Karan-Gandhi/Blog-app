@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import Blog from "../types/Blog";
 import Circle from "@material-ui/icons/FiberManualRecord";
 
@@ -7,8 +8,13 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 const FeedCard: React.FC<FeedCardProps> = ({ authorName, timeToRead, datePublished, id, tags, title }) => {
 	// alert(authorName);
+	const navigate = useNavigate();
+
 	return (
-		<div className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full cursor-pointer">
+		<div
+			className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full cursor-pointer"
+			onClick={() => navigate("/blogs/" + id)}
+		>
 			<div>
 				<div className="text text-zinc-300 font-semibold">{authorName}</div>
 				<div className="text-2xl font-bold mb-2">{title}</div>

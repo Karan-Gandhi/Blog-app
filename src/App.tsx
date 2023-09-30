@@ -7,12 +7,13 @@ import SignupRoute from "./routes/SignupRoute";
 import LogoutRoute from "./routes/LogoutRoute";
 import FeedRoute from "./routes/FeedRoute";
 import CreateBlogRoute from "./routes/CreateBlogRoute";
+import ViewBlogRoute from "./routes/ViewBlogRoute";
 
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
 	return (
-		<div>
+		<div className="w-full h-screen">
 			<BrowserRouter>
 				<SnackbarProvider>
 					<Routes>
@@ -24,6 +25,7 @@ const App: React.FC<AppProps> = () => {
 							<Route path="/logout" Component={LogoutRoute} />
 							<Route path="/feed" Component={FeedRoute} />
 							<Route path="/createBlog" Component={CreateBlogRoute} />
+							<Route path="/blogs/:id" Component={ViewBlogRoute} />
 						</Route>
 					</Routes>
 
