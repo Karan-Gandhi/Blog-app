@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Navigate, Outlet, Route, RouteProps } from "react-router";
+import { Navigate, Outlet, RouteProps } from "react-router";
 import { userIsLoggedIn } from "../api/Auth";
 import Loader from "./DefaultLoader";
-// import MainSidebar from "./MainSidebar";
 
 type AuthenticatedRouteProps = RouteProps | { element: React.ElementType };
 

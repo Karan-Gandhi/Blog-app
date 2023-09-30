@@ -11,6 +11,7 @@ export const createBlog = async (
 	title: string,
 	datePublished: number,
 	content: string,
+	tags: string[],
 	userID: UserID
 ): Promise<Blog> => {
 	const blogID = v4();
@@ -26,6 +27,7 @@ export const createBlog = async (
 		title,
 		author: userID,
 		datePublished,
+		tags,
 		blogContentID: blogContent.id,
 	};
 

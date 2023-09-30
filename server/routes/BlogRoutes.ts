@@ -12,9 +12,9 @@ router.get("/", async (req, res) => {
 
 router.post("/createBlog", async (req, res) => {
 	// creates a blog with some information
-	const { title, content } = req.body;
+	const { title, content, tags } = req.body;
 	const user = JSON.parse(req.user as string) as User; // this user will be the admin
-	res.json(await createBlog(title, Date.now(), content, user.id));
+	res.json(await createBlog(title, Date.now(), content, tags, user.id));
 });
 
 router.get("/:id", async (req, res) => {
