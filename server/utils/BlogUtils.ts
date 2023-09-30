@@ -22,6 +22,8 @@ export const createBlog = async (
 		content,
 	};
 
+	const timeToRead = Math.round(content.split(" ").length / 238);
+
 	const blog: Blog = {
 		id: blogID,
 		title,
@@ -30,6 +32,7 @@ export const createBlog = async (
 		datePublished,
 		tags,
 		blogContentID: blogContent.id,
+		timeToRead: (timeToRead === 0 ? 1 : timeToRead) + " min",
 	};
 
 	// update database

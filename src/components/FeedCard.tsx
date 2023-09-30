@@ -5,7 +5,7 @@ interface FeedCardProps extends Blog {}
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-const FeedCard: React.FC<FeedCardProps> = ({ authorName, blogContentID, datePublished, id, tags, title }) => {
+const FeedCard: React.FC<FeedCardProps> = ({ authorName, timeToRead, datePublished, id, tags, title }) => {
 	// alert(authorName);
 	return (
 		<div className="flex flex-row bg-zinc-900 py-7 my-5 px-14 rounded-3xl w-full cursor-pointer">
@@ -17,7 +17,7 @@ const FeedCard: React.FC<FeedCardProps> = ({ authorName, blogContentID, datePubl
 					<div className="mb-0.5">
 						<Circle fontSize="small" style={{ fontSize: "0.5rem" }} />
 					</div>
-					<div>10 min</div>
+					<div>{timeToRead}</div>
 					<div className="mb-0.5">
 						<Circle fontSize="small" style={{ fontSize: "0.5rem" }} />
 					</div>

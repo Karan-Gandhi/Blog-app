@@ -11,6 +11,7 @@ export default interface Blog {
 	datePublished: number;
 	tags: string[];
 	authorName: string;
+	timeToRead: string;
 }
 
 export interface BlogContent {

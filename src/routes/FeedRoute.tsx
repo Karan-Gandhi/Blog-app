@@ -16,7 +16,7 @@ const FeedRoute: React.FC<FeedRouteProps> = () => {
 
 	useEffect(() => {
 		getAllBlogs()
-			.then(blogs => [setAllBlogs(blogs), setLoading(false)])
+			.then(blogs => [setAllBlogs(blogs.sort((a, b) => b.datePublished - a.datePublished)), setLoading(false)])
 			.catch(error => setLoading(false));
 	}, []);
 
