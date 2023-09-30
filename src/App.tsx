@@ -5,6 +5,7 @@ import DefaultRoute from "./routes/DefaultRoute";
 import LoginRoute from "./routes/LoginRoute";
 import SignupRoute from "./routes/SignupRoute";
 import LogoutRoute from "./routes/LogoutRoute";
+import FeedRoute from "./routes/FeedRoute";
 
 interface AppProps {}
 
@@ -20,12 +21,9 @@ const App: React.FC<AppProps> = () => {
 
 						<Route element={<AuthenticatedRoute />}>
 							<Route path="/logout" Component={LogoutRoute} />
+							<Route path="/feed" Component={FeedRoute} />
+							{/* <Route path="/blog"  */}
 						</Route>
-
-						{/* <AuthenticatedRoute path="/teams/*" component={TeamsRoute} />
-						<AuthenticatedRoute path="/activity" component={TeamsRoute} exact />
-						<AuthenticatedRoute path="/todo" component={TeamsRoute} exact /> */}
-						{/* <AuthenticatedRoute path="/logout" Component={LogoutRoute} /> */}
 					</Routes>
 				</SnackbarProvider>
 			</BrowserRouter>

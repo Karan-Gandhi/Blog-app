@@ -60,7 +60,6 @@ const SignupRoute: React.FC<SignupRouteProps> = () => {
 						<span>Sign up</span>
 					</div>
 					<form onSubmit={handleSubmit} className="w-full flex gap-2 flex-col">
-						{/* <form className="w-full flex gap-2 flex-col"> */}
 						<div>
 							<Textfield
 								onChange={value => {

@@ -36,6 +36,7 @@ const LoginRoute: React.FC<LoginRouteProps> = () => {
 				loginWithEmailAndPassword(email, password)
 					.then(status => [setUserLoggedIn(status), setLoading(false)])
 					.catch(error => {
+						setLoading(false);
 						if (error.message === "Network Error") {
 							// eslint-disable-next-line indent
 							return enqueueSnackbar("No internet connection");
