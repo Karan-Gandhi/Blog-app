@@ -6,6 +6,7 @@ import LoginRoute from "./routes/LoginRoute";
 import SignupRoute from "./routes/SignupRoute";
 import LogoutRoute from "./routes/LogoutRoute";
 import FeedRoute from "./routes/FeedRoute";
+import CreateBlogRoute from "./routes/CreateBlogRoute";
 
 interface AppProps {}
 
@@ -22,9 +23,11 @@ const App: React.FC<AppProps> = () => {
 						<Route element={<AuthenticatedRoute />}>
 							<Route path="/logout" Component={LogoutRoute} />
 							<Route path="/feed" Component={FeedRoute} />
-							{/* <Route path="/blog"  */}
+							<Route path="/createBlog" Component={CreateBlogRoute} />
 						</Route>
 					</Routes>
+
+					{/* <Footer /> */}
 				</SnackbarProvider>
 			</BrowserRouter>
 		</div>

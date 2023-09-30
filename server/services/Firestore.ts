@@ -9,7 +9,7 @@ export const addData = async <T extends FirebaseFirestore.DocumentData>(
 	document: string,
 	data: T
 ): Promise<FirebaseFirestore.WriteResult> => {
-	firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
+	// firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
 	return await db.collection(collection).doc(document).set(data);
 };
 
@@ -26,14 +26,14 @@ export const readData: {
 			return null;
 		}
 		const data = doc.data() as T;
-		firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
+		// firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
 		return data;
 	} else {
-		if (firebaseCache.itemExists(collection)) return firebaseCache.getItem(collection) as T[];
+		// if (firebaseCache.itemExists(collection)) return firebaseCache.getItem(collection) as T[];
 		const snapshots = await db.collection(collection).get();
 		const res: T[] = [];
 		snapshots.forEach(snapshot => res.push(snapshot.data() as T));
-		firebaseCache.addItem(collection, res);
+		// firebaseCache.addItem(collection, res);
 		return res;
 	}
 };
@@ -48,23 +48,23 @@ export const readDataNoCache: {
 			return null;
 		}
 		const data = doc.data() as T;
-		firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
+		// firebaseCache.addItem(collectionAndDocumentToId(collection, document), data);
 		return data;
 	} else {
 		const snapshots = await db.collection(collection).get();
 		const res: T[] = [];
 		snapshots.forEach(snapshot => res.push(snapshot.data() as T));
-		firebaseCache.addItem(collection, res);
+		// firebaseCache.addItem(collection, res);
 		return res;
 	}
 };
 
 export const deleteData = async (collection: string, document?: string) => {
 	if (!!document) {
-		firebaseCache.deleteIfPresent(collectionAndDocumentToId(collection, document));
+		// firebaseCache.deleteIfPresent(collectionAndDocumentToId(collection, document));
 		return await db.collection(collection).doc(document).delete();
 	} else {
-		firebaseCache.deleteIfPresent(collection);
+		// firebaseCache.deleteIfPresent(collection);
 
 		const deleteCollection = async (collectionPath: string, batchSize: number) => {
 			const collectionRef = db.collection(collectionPath);

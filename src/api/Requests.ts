@@ -20,6 +20,12 @@ export interface LogoutRequest {
 	refreshToken: RefreshToken;
 }
 
+export interface CreateBlogRequest {
+	title: string;
+	content: string;
+	tags: string[];
+}
+
 // Change from heres
 // export interface SendTeamMessageRequest {
 // 	content: string;

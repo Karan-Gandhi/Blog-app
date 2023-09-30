@@ -2,10 +2,14 @@
 
 - User Login, and Signup.
 - User Authorisation - Once the user is logged in then the server gives a Access token which expires in 10 min after which the user provides a refresh token to get the new access token. Without the access token, the user wouldn't be able to see other blogs, create, edit new or existing blogs. This entire process happens in the background
-- User can create new Blogs
+- User can create new Blogs in markdown
 - User can edit existing blogs provided it is written by him.
+- Add tags to your blogs
 - User can delete existing blogs provided it is created by him.
+- Authentication is done without using any libraries (other than jwt).
+- Complete ui is created without using any libraries (including the snackbar)
 - ~~A User can add comments to other's blogs~~
+- ~~View a user's profile (All blogs written by him)~~
 
 # Running this app locally
 

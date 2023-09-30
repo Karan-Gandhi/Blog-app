@@ -5,12 +5,14 @@ import AddIcon from "@material-ui/icons/Add";
 import Blog from "../types/Blog";
 import DefaultLoader from "../components/DefaultLoader";
 import { getAllBlogs } from "../utils/BlogUtils";
+import { useNavigate } from "react-router";
 
 interface FeedRouteProps {}
 
 const FeedRoute: React.FC<FeedRouteProps> = () => {
 	const [isLoading, setLoading] = useState<boolean>(true);
 	const [allBlogs, setAllBlogs] = useState<Blog[]>([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		getAllBlogs()
@@ -30,7 +32,12 @@ const FeedRoute: React.FC<FeedRouteProps> = () => {
 						</div>
 
 						<div className="">
-							<Button noPadding noRounded className="p-2 flex items-center justify-center rounded-full">
+							<Button
+								noPadding
+								noRounded
+								className="p-2 flex items-center justify-center rounded-full"
+								onClick={() => navigate("/createBlog")}
+							>
 								<AddIcon />
 							</Button>
 						</div>

@@ -22,6 +22,8 @@ export interface GetAllBlogsResponse {
 	blogs: Blog[];
 }
 
+export interface CreateBlogResponse extends Blog {}
+
 // Change from here
 
 // export type CreateTeamResponse = Team;
