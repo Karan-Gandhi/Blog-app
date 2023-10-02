@@ -9,6 +9,8 @@
 - User can delete existing blogs provided it is created by him.
 - Authentication is done without using any libraries (other than jwt).
 - Complete ui is created without using any libraries (including the snackbar)
+- Fully responsive
+
 - ~~A User can add comments to other's blogs~~
 - ~~View a user's profile (All blogs written by him)~~
 

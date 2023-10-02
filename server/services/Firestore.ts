@@ -1,8 +1,7 @@
 import { db } from "./Firebase";
-import Cache from "./Cache";
 
-export const firebaseCache = new Cache("cache/firebase.cache");
-firebaseCache.fromFile();
+// export const firebaseCache = new Cache("cache/firebase.cache");
+// firebaseCache.fromFile();
 
 export const addData = async <T extends FirebaseFirestore.DocumentData>(
 	collection: string,
